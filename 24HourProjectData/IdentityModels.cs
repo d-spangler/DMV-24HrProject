@@ -1,8 +1,10 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
+using _24HourProjectData;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.EntityFrameworkCore;
 
 namespace _24HourProjectAPI.Models
 {
@@ -18,8 +20,11 @@ namespace _24HourProjectAPI.Models
         }
     }
 
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+    public DbSet<Post> Posts { get; set; } //
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

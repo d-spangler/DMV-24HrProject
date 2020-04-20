@@ -11,6 +11,12 @@ namespace _24HourProjectServices
 {
     public class PostService
     {
+        private readonly Guid _userId;
+        public PostService(Guid id)
+        {
+            _userId = id;
+        }
+
         //POST
         public bool CreatePost(PostCreate model)
         {

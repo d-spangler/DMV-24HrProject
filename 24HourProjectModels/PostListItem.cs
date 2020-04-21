@@ -14,5 +14,6 @@ namespace _24HourProjectData
 
         [Display(Name = "Date Posted")]
         public DateTimeOffset CreatedUtc { get; set; }
+
     }
 }

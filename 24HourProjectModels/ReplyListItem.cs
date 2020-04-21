@@ -14,5 +14,6 @@ namespace _24HourProjectModels
 
         [Display(Name = "Date Posted")]
         public DateTimeOffset Created { get; set; }
+        public int CommentId { get; set; }
     }
 }

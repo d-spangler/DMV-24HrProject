@@ -29,7 +29,7 @@ namespace _24HourProjectServices
                 };
             using (var dataBase = new ApplicationDbContext())
             {
-                dataBase.Post.Add(newPost);
+                dataBase.Posts.Add(newPost);
                 return dataBase.SaveChanges() == 1;
             }
         }
@@ -39,7 +39,7 @@ namespace _24HourProjectServices
             using (var db = new ApplicationDbContext())
             {
                 var query =
-                    db.Post.Where(e => e.OwnerId == _userId)
+                    db.Posts.Where(e => e.OwnerId == _userId)
                     .Select(e =>
                         new PostListItem
                         {

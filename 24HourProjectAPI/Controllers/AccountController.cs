@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using _24HourProjectAPI.Models;
 using _24HourProjectAPI.Providers;
 using _24HourProjectAPI.Results;
+using _24HourProjectData;
 
 namespace _24HourProjectAPI.Controllers
 {

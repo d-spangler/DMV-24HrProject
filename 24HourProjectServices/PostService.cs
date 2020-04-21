@@ -1,5 +1,4 @@
-﻿using _24HourProjectAPI.Models;
-using _24HourProjectData;
+﻿using _24HourProjectData;
 using _24HourProjectModels;
 using System;
 using System.Collections.Generic;
@@ -30,7 +29,7 @@ namespace _24HourProjectServices
                 };
             using (var dataBase = new ApplicationDbContext())
             {
-                dataBase.Posts.Add(newPost);
+                dataBase.Post.Add(newPost);
                 return dataBase.SaveChanges() == 1;
             }
         }
@@ -40,7 +39,7 @@ namespace _24HourProjectServices
             using (var db = new ApplicationDbContext())
             {
                 var query =
-                    db.Posts.Where(e => e.OwnerId == _userId)
+                    db.Post.Where(e => e.OwnerId == _userId)
                     .Select(e =>
                         new PostListItem
                         {

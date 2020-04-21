@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,19 @@ namespace _24HourProjectData
     {
         [Key]
         public int CommentId { get; set; }
-
         [Required]
-        public string Text { get; set; }
+        public Guid OwnerId { get; set; }
         [Required]
-        [Display(Name = "Comment Section")]
-        [MaxLength(200, ErrorMessage = "Comment is too long, try again")]
-        [MinLength(4, ErrorMessage = "Comment must have at least four characters, try again")]
-
-        public string CommentAuthor { get; set; }
+        public int PostId { get; set; }
+        [ForeignKey(nameof(PostId))]
+        public virtual Post post { get; set; }
         [Required]
-        [Display(Name = "UserName ")]
-        [MaxLength(12, ErrorMessage = "Username too long, try less than 12 characters")]
-        [MinLength(6, ErrorMessage = "Username too short, try at least 6 characters")]
-
-        public string CommentContent { get; set; }
-
-        
-        
-
+        public string Title { get; set; }
+        [Required]
+        public string Content { get; set; }
+        [Required]
+        public DateTimeOffset Created { get; set; }
+        [Required]
+        public DateTimeOffset? Modified { get; set; }
     }
 }

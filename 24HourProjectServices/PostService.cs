@@ -52,6 +52,53 @@ namespace _24HourProjectServices
             }
         }
 
+        public PostDetail GetPostById(int id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var post =
+                    db.Posts
+                    .Single(e => e.PostId == id && e.OwnerId == _userId);
+                return new PostDetail
+                {
+                    PostId = post.PostId,
+                    Title = post.Title,
+                    Content = post.Content,
+                    CreatedUtc = post.CreatedUtc,
+                    ModifiedUtc = post.ModifiedUtc
+                };
+            }
+        }
+
+        //PUT
+        public bool UpdatePost(PostEdit model)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var entity =
+                    db.Posts.Single(e => e.PostId == model.PostId && e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Content = model.Content;
+                entity.ModifiedUtc = DateTimeOffset.Now;
+
+                return db.SaveChanges() == 1;
+                    }
+        }
+
+        //DELETE
+        public bool DeletePost(int id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var entity = db.Posts.Single
+                    (e => e.PostId == id && e.OwnerId == _userId);
+                db.Posts.Remove(entity);
+                return db.SaveChanges() == 1;
+            }
+        }
+
+
 
 
 

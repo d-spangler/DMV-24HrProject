@@ -1,8 +1,10 @@
 ﻿using _24HourProjectData;
 using _24HourProjectModels;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,26 +12,29 @@ namespace _24HourProjectServices
 {
     public class LikeService
     {
-        public readonly Guid _ownerId;
+        public readonly int _postId;
 
-        public LikeService(Guid ownerId)
+        public LikeService(int postId)
         {
-            _ownerId = ownerId;
+            _postId = postId;
         }
 
         //Create
-        /*public bool CreateLike(LikeCreate model)
+        public bool CreateLike(LikeCreate model)
         {
-            if(model.LikedPost.Equals(true))
+            using (var like = new ApplicationDbContext())
             {
-                
+                while (model.LikedPost.Equals(true))
+                {
+                    Console.WriteLine($"{model.Liker} likes this.");
+                }
+
+                return like.SaveChanges() == 1;
             }
-
-            
-        }*/
+        }
 
 
-        //Read
+        //Return
         public IEnumerable<PostListItem> GetLikes()
         {
             using (var like = new ApplicationDbContext())
@@ -37,7 +42,7 @@ namespace _24HourProjectServices
                 var queary =
                     like
                         .Post
-                        .Where(e => e.OwnerId == _ownerId)
+                        .Where(e => e.PostId == _postId)
                         .Select(
                             e =>
                                 new PostListItem
@@ -51,10 +56,24 @@ namespace _24HourProjectServices
         }
 
 
-        //Update
+        //Update //Delete
+        public bool RemoveLike(int postId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var like =
+                    ctx
+                        .Post
+                        .Single(e => e.PostId == postId);
 
+                LikePost = false;
 
-        //Delete
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
+        
 
 
     }

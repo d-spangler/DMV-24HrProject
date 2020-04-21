@@ -25,6 +25,8 @@ namespace _24HourProjectAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
         }
     }
 }

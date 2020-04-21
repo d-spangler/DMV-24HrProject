@@ -16,7 +16,8 @@ namespace _24HourProjectData
         public Guid OwnerId { get; set; }
         [Required]
         public int CommentId { get; set; }
-        [ForeignKey(nameof(CommentId)]
+        [ForeignKey(nameof(CommentId))]
+
         public virtual Comment comment { get; set; }
         [Required]
         public string Title { get; set; }

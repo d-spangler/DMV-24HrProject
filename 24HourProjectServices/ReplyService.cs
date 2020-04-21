@@ -1,11 +1,8 @@
-﻿using _24HourProjectAPI.Models;
-using _24HourProjectData;
+﻿using _24HourProjectData;
 using _24HourProjectModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _24HourProjectServices
 {

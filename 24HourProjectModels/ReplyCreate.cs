@@ -18,7 +18,7 @@ namespace _24HourProjectModels
 
         [Required]
         public int CommentId { get; set; }
-        [ForeignKey(nameof(CommentId)]
+        [ForeignKey(nameof(CommentId))]
         public virtual Comment comment { get; set; }
     }
 }

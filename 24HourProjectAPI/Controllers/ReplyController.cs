@@ -38,14 +38,14 @@ namespace _24HourProjectAPI.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var service = CreateReplyService();
-            if (!service.UpdateReply(reply)) return InternalServerError;
+            if (!service.UpdateReply(reply)) return InternalServerError();
             return Ok();
         }
 
         public IHttpActionResult Delete(int id)
         {
             var service = CreateReplyService();
-            if (!service.DeleteReply(id)) return InternalServerError;
+            if (!service.DeleteReply(id)) return InternalServerError();
             return Ok();
         }
 

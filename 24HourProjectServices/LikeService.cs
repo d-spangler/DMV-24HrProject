@@ -26,7 +26,7 @@ namespace _24HourProjectServices
             {
                 while (model.LikedPost.Equals(true))
                 {
-                    Console.WriteLine($"{model.Liker} likes this.");
+                    Console.WriteLine($"{model.liker} likes this.");
                 }
 
                 return like.SaveChanges() == 1;
@@ -66,7 +66,7 @@ namespace _24HourProjectServices
                         .Post
                         .Single(e => e.PostId == postId);
 
-                LikePost = false;
+                LikedPost = false;
 
                 return ctx.SaveChanges() == 1;
             }

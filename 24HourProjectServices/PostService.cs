@@ -82,7 +82,7 @@ namespace _24HourProjectServices
                 entity.ModifiedUtc = DateTimeOffset.Now;
 
                 return db.SaveChanges() == 1;
-                    }
+            }
         }
 
         //DELETE
@@ -96,12 +96,5 @@ namespace _24HourProjectServices
                 return db.SaveChanges() == 1;
             }
         }
-
-
-
-
-
-
-
     }
 }

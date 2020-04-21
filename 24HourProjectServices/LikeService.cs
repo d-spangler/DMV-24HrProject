@@ -57,21 +57,18 @@ namespace _24HourProjectServices
 
 
         //Update //Delete
-        public bool RemoveLike(int postId)
+        /*public bool RemoveLike(LikeEdit model)
         {
-            using (var ctx = new ApplicationDbContext())
+            using (var db = new ApplicationDbContext())
             {
-                var like =
-                    ctx
-                        .Post
-                        .Single(e => e.PostId == postId);
+                var entity =
+                    db.Post.Single()
 
-                LikedPost = false;
+                entity.Like = model.Like;
 
-                return ctx.SaveChanges() == 1;
+                return db.SaveChanges() == 1;
             }
-
-        }
+        }*/
 
         
 

@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace _24HourProjectData
 {
-    public class Reply
+    public class Comment
     {
         [Key]
-        public int ReplyId { get; set; }
+        public int CommentId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
         [Required]
-        public int CommentId { get; set; }
-        [ForeignKey(nameof(CommentId))]
-        public virtual Comment comment { get; set; }
+        public int PostId { get; set; }
+        [ForeignKey(nameof(PostId))]
+        public virtual Post post { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]

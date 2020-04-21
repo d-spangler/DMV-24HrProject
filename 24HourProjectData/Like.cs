@@ -9,7 +9,7 @@ namespace _24HourProjectData
 {
     public class Like
     {
-        [ForeignKey(nameof(LikedPost))]
+        [ForeignKey(nameof(LikedPost))]//Should the foreign keys be under the Post similar to how ProductId was under Transaction in the General Store example?
         public virtual bool LikedPost { get; set; }
 
         [ForeignKey(nameof(Liker))]

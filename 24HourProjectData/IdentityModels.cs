@@ -26,6 +26,12 @@ namespace _24HourProjectData
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+<<<<<<< HEAD
+        public DbSet<Post> Posts { get; set; } //
+
+        public DbSet<Reply> Replies { get; set; }
+=======
+>>>>>>> e721f8671775d8cdbc59365402363f3435fa4928
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
